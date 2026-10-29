@@ -1,0 +1,42 @@
+/* Shared by the menu page and every sketch page. */
+:root {
+  --bg: #F4F7FA; --panel: #FFFFFF; --fg: #1E293B; --muted: #55627A;
+  --accent: #005088; --accent-2: #B4441C; --line: #D5DDE6;
+}
+
+body {
+  margin: 0 auto; max-width: 960px; padding: 32px 16px 48px;
+  background: var(--bg); color: var(--fg);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif; line-height: 1.5;
+}
+
+h1 { color: var(--accent); margin: 0 0 8px; line-height: 1.2; }
+header p { color: var(--muted); max-width: 66ch; margin: 0 0 24px; }
+a { color: var(--accent); }
+code { font-family: ui-monospace, Consolas, Menlo, monospace; font-size: 0.9em; }
+
+.tag {
+  display: block; margin: 0 0 4px; font-size: 13px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-2);
+}
+
+/* Menu page: a grid of cards, one per sketch */
+.sketch-list {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+.sketch-list a {
+  display: flex; flex-direction: column; gap: 6px; height: 100%; box-sizing: border-box;
+  padding: 18px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+  color: var(--fg); text-decoration: none;
+}
+.sketch-list a:hover, .sketch-list a:focus-visible { border-color: var(--accent); }
+.sketch-list strong { font-size: 18px; }
+.sketch-list span:not(.tag) { color: var(--muted); }
+.sketch-list code { margin-top: auto; color: var(--accent); }
+
+footer { margin-top: 32px; color: var(--muted); font-size: 14px; }
+
+/* Sketch pages: the canvas p5 creates sits under the header */
+.sketch-page header a { display: inline-block; margin-bottom: 16px; }
+.sketch-page canvas { display: block; border: 1px solid var(--line); border-radius: 8px; }
